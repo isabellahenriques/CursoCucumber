@@ -2,6 +2,7 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
+import org.junit.Assert;
 
 public class AprenderCucumber {
     @Dado("^que criei o arquivo corretamente$")
@@ -31,8 +32,7 @@ public class AprenderCucumber {
 
     @Então("^o valor do contador será (\\d+)$")
     public void oValorDoContadorSerá(int arg1) throws Throwable {
-        System.out.println(arg1);
-        System.out.println(contador);
-        System.out.println(arg1 == contador);
+        Assert.assertEquals(arg1, contador);
+//        throw new RuntimeException();
     }
 }
