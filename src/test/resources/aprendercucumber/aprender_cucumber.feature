@@ -8,3 +8,4 @@ Cenario: Deve executar especificacao
   Dado que criei o arquivo corretamente
   Quando executaLo
   Entao a especificacao deve finalizar com sucesso
+  Entao outro passo qualquer
