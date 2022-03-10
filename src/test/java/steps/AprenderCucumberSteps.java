@@ -1,8 +1,11 @@
+package steps;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import converters.DateConverter;
 import cucumber.api.Transform;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -12,7 +15,7 @@ import org.junit.Assert;
 
 
 
-public class AprenderCucumber {
+public class AprenderCucumberSteps {
     @Dado("^que criei o arquivo corretamente$")
     public void queCrieiOArquivoCorretamente() throws Throwable {
         System.out.println("Qualquer coisa");
