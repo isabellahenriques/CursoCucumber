@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/aprender_cucumber.feature",
         glue = "steps",
-        tags = "~@ignore",
+        tags = {"@tipo1, @tipo2"},
         plugin = "pretty",
         monochrome = true,
         snippets = SnippetType.CAMELCASE,

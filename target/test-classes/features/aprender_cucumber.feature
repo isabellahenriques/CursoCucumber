@@ -1,5 +1,5 @@
 # language: pt
-  @esse
+  @esse_teste
   Funcionalidade: Aprender Cucumber
     Como um aluno
     Eu quero aprender a utilizar Cucumber
@@ -10,16 +10,19 @@
     Quando executaLo
     Entao a especificacao deve finalizar com sucesso
 
+  @tipo1
   Cenario: Deve incrementar contador
     Dado que o valor do contador é 15
     Quando eu incrementar em 3
     Então o valor do contador será 18
 
+  @tipo2
   Cenario: Deve incrementar contador
     Dado que o valor do contador é 123
     Quando eu incrementar em 35
     Então o valor do contador será 158
 
+  @tipo1 @tipo2
   Cenario: Deve calcular atraso na entrega
     Dado que a entrega e dia 05/04/2018
     Quando a entrega atrasar em 2 dias
