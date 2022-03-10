@@ -8,10 +8,9 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Então;
 import cucumber.api.java.pt.Quando;
-import cucumber.deps.com.thoughtworks.xstream.converters.basic.DateConverter;
 import org.junit.Assert;
 
-import java.util.Date;
+
 
 public class AprenderCucumber {
     @Dado("^que criei o arquivo corretamente$")
@@ -47,13 +46,10 @@ public class AprenderCucumber {
 
     Date entrega = new Date();
 
-    @Dado("^que a entrega e dia (\\d+)/(\\d+)/(\\d+)$")
-    public void queAEntregaEDia(int dia, int mes, int ano) throws Throwable {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.DAY_OF_MONTH, dia);
-        cal.set(Calendar.MONTH, mes -1);
-        cal.set(Calendar.YEAR, ano);
-        entrega = cal.getTime();
+    @Dado("^que a entrega é dia (.*)$")
+    public void queAEntregaÉDia(@Transform(DateConverter.class) Date data) throws Throwable {
+        entrega = data;
+        System.out.println(entrega);
     }
 
     @Quando("^a entrega atrasar em (\\d+) (.+)$")
@@ -80,8 +76,9 @@ public class AprenderCucumber {
     public void queOTicketÉAF(String tipo, String arg1) throws Throwable {
     }
 
-    @Dado("^que o valor da passagem é R\\$ (\\d+),(\\d+)$")
-    public void queOValorDaPassagemÉR$(int arg1, int arg2) throws Throwable {
+    @Dado("^que o valor da passagem é R\\$ (.*)$")
+    public void queOValorDaPassagemÉR$(Double numero) throws Throwable {
+        System.out.println(numero);
     }
 
     @Dado("^que o nome do passageiro é \"(.{5,20})\"$")
