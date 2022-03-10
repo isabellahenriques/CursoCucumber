@@ -49,7 +49,7 @@ public class AprenderCucumberSteps {
 
     Date entrega = new Date();
 
-    @Dado("^que a entrega é dia (.*)$")
+    @Dado("^que a entrega e dia (.*)$")
     public void queAEntregaÉDia(@Transform(DateConverter.class) Date data) throws Throwable {
         entrega = data;
         System.out.println(entrega);
