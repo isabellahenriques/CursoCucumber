@@ -1,8 +1,9 @@
 # language: pt
-Funcionalidade: Aprender Cucumber
-  Como um aluno
-  Eu quero aprender a utilizar Cucumber
-  Para que eu possa automatizar criterios de aceitacao
+  @esse
+  Funcionalidade: Aprender Cucumber
+    Como um aluno
+    Eu quero aprender a utilizar Cucumber
+    Para que eu possa automatizar criterios de aceitacao
 
   Cenario: Deve executar especificacao
     Dado que criei o arquivo corretamente
@@ -19,7 +20,6 @@ Funcionalidade: Aprender Cucumber
     Quando eu incrementar em 35
     Então o valor do contador será 158
 
-  @esse
   Cenario: Deve calcular atraso na entrega
     Dado que a entrega e dia 05/04/2018
     Quando a entrega atrasar em 2 dias
