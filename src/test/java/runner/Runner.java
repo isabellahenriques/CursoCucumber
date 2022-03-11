@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features/alugar_filme.feature",
         glue = "steps",
         tags = {},
-        plugin = "pretty",
+        plugin = {"pretty", "html:target.report-html", "json:target/report.json"}, //relatorios
         monochrome = true,
         snippets = SnippetType.CAMELCASE,
         dryRun = false,
@@ -19,3 +19,8 @@ import org.junit.runner.RunWith;
 public class Runner {
 
 }
+
+//relatorios
+//plugin = "pretty"
+//plugin = {"pretty", "html:target.report-html"}
+//plugin = {"pretty", "html:target.report-html", "json:target/report.json"}
