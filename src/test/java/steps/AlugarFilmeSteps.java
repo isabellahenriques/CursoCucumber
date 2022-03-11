@@ -1,5 +1,6 @@
 package steps;
 
+import cucumber.api.DataTable;
 import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Então;
@@ -15,6 +16,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Map;
 
 public class AlugarFilmeSteps {
 
@@ -22,7 +24,7 @@ public class AlugarFilmeSteps {
     private AluguelService aluguel = new AluguelService();
     private NotaAluguel nota;
     private String erro;
-    private TipoAluguel tipoAulguel = TipoAluguel.COMUM;
+    private TipoAluguel tipoAulguel;
 
     @Dado("^um filme com estoque de (\\d+) unidades$")
     public void umFilmeComEstoqueDeUnidades(int arg1) throws Throwable {
@@ -33,6 +35,16 @@ public class AlugarFilmeSteps {
     @Dado("^que o preco do aluguel seja R\\$ (\\d+)$")
     public void queOPrecoDoAluguelSejaR$(int arg1) throws Throwable {
         filme.setAluguel(arg1);
+    }
+
+    @Dado("^um filme$")
+    public void umFilme(DataTable table) throws Throwable {
+        Map<String, String> map = table.asMap(String.class, String.class);
+        filme = new Filme();
+        filme.setEstoque(Integer.parseInt(map.get("estoque")));
+        filme.setAluguel(Integer.parseInt(map.get("preco")));
+        String tipo = map.get("tipo");
+        tipoAulguel = tipo.equals("semanal")? TipoAluguel.SEMANAL: tipo.equals("extendido")? TipoAluguel.EXTENDIDO: TipoAluguel.COMUM;
     }
 
     @Quando("^alugar$")
